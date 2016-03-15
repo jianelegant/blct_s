@@ -25,7 +25,7 @@ public class CocOfficialAPIController {
 			+ "H1d0FAWIrHoQ8s-dGozTQw5D-_Xmbh7oDKz6IBQhP1Mm5_AfaJ6-M6f6VZKKbV_EGznmm0w";
 
 	private static final Logger mLogger = Logger.getLogger(CocOfficialAPIController.class);
-	
+
 	@RequestMapping(value = "/leagues", method = RequestMethod.GET)
 	@ResponseBody
 	public String getLeagues() {
@@ -47,14 +47,14 @@ public class CocOfficialAPIController {
 			while ((strLine = bufferedReader.readLine()) != null) {
 				strResult += strLine;
 			}
-			mLogger.debug("No exception, strResult = "+strResult);
+			mLogger.debug("No exception, strResult = " + strResult);
 		} catch (MalformedURLException e) {
 			strResult = e.getMessage();
-			mLogger.error("MalformedURLException, msg = "+e.getMessage());
+			mLogger.error("MalformedURLException, msg = " + e.getMessage());
 			e.printStackTrace();
 		} catch (IOException e) {
 			strResult = e.getMessage();
-			mLogger.error("IOException, msg = "+e.getMessage());
+			mLogger.error("IOException, msg = " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
