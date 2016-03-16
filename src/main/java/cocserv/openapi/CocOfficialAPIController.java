@@ -7,11 +7,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import cocserv.util.Log;
 
 @Controller
 public class CocOfficialAPIController {
@@ -23,8 +24,6 @@ public class CocOfficialAPIController {
 			+ "6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGx"
 			+ "pbmcifSx7ImNpZHJzIjpbIjU0LjIxMy4yNy4xNTgiXSwidHlwZSI6ImNsaWVudCJ9XX0.4Rh_CwQ-MmUOGHC"
 			+ "H1d0FAWIrHoQ8s-dGozTQw5D-_Xmbh7oDKz6IBQhP1Mm5_AfaJ6-M6f6VZKKbV_EGznmm0w";
-
-	private static final Logger mLogger = Logger.getLogger(CocOfficialAPIController.class);
 
 	@RequestMapping(value = "/leagues", method = RequestMethod.GET)
 	@ResponseBody
@@ -47,14 +46,14 @@ public class CocOfficialAPIController {
 			while ((strLine = bufferedReader.readLine()) != null) {
 				strResult += strLine;
 			}
-			mLogger.debug("No exception, strResult = " + strResult);
+			Log.debug("No exception, strResult = " + strResult);
 		} catch (MalformedURLException e) {
 			strResult = e.getMessage();
-			mLogger.error("MalformedURLException, msg = " + e.getMessage());
+			Log.error("MalformedURLException, msg = " + e.getMessage());
 			e.printStackTrace();
 		} catch (IOException e) {
 			strResult = e.getMessage();
-			mLogger.error("IOException, msg = " + e.getMessage());
+			Log.error("IOException, msg = " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
