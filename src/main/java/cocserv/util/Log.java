@@ -2,11 +2,9 @@ package cocserv.util;
 
 import org.apache.log4j.Logger;
 
-import cocserv.openapi.CocOfficialAPIController;
-
 public class Log {
 
-	private static final Logger mLogger = Logger.getLogger(CocOfficialAPIController.class);
+	private static final Logger mLogger = Logger.getLogger(Log.class);
 
 	public static void debug(String msg) {
 		mLogger.debug(msg);
