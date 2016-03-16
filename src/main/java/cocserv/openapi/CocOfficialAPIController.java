@@ -1,4 +1,4 @@
-package cocserv;
+package cocserv.openapi;
 
 import java.io.BufferedReader;
 import java.io.IOException;
